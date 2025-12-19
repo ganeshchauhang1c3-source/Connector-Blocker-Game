@@ -1,9 +1,23 @@
+/* College watermark */
+body::before {
+  content: "GURU NANAK KHALSA COLLEGE";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  z-index: 0;
+  pointer-events: none;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0f1a;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle, #121a33, #05070f);
   color: white;
-  text-align: center;
+  overflow: hidden;
 }
 
 .screen {
@@ -13,59 +27,94 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .hidden {
   display: none;
 }
 
+/* Smooth screen animation */
+.fade-in {
+  animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Logo */
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.6));
+}
+
+/* Buttons */
 button {
-  padding: 14px 32px;
+  padding: 14px 34px;
   font-size: 18px;
+  background: linear-gradient(45deg, #00ff88, #00c4ff);
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
+  color: black;
   margin-top: 20px;
+  box-shadow: 0 0 20px rgba(0,255,200,0.5);
 }
 
+/* Inputs */
 input {
-  padding: 10px;
-  margin: 8px;
+  padding: 12px;
   font-size: 16px;
+  margin: 8px;
+  border-radius: 8px;
+  border: none;
 }
 
+/* Game board */
 svg {
-  width: 90vw;
+  width: 92vw;
+  height: 92vw;
   max-width: 600px;
-  height: 90vw;
   max-height: 600px;
-  border: 2px solid #555;
+  border: 2px solid rgba(255,255,255,0.2);
 }
 
+/* Web edges */
 .edge {
-  stroke: #888;
-  stroke-width: 3;
+  stroke: rgba(200,200,255,0.6);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(200,200,255,0.4));
+  animation: glow 3s infinite;
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 4px #aaa); }
+  50% { filter: drop-shadow(0 0 12px #ccc); }
+  100% { filter: drop-shadow(0 0 4px #aaa); }
 }
 
 .connector {
-  stroke: lime;
+  stroke: #00ff88;
+  filter: drop-shadow(0 0 12px #00ff88);
 }
 
 .blocked {
-  stroke: red;
+  stroke: #ff4d4d;
+  filter: drop-shadow(0 0 12px #ff4d4d);
 }
 
-.node {
-  fill: #aaa;
-}
+/* Nodes */
+.node { fill: #bbb; }
+.start { fill: #00ff88; }
+.end { fill: #00d4ff; }
 
-.start {
-  fill: lime;
-}
-
-.end {
-  fill: cyan;
-}
-
+/* Winner text */
 #winText {
-  font-size: 50px;
+  font-size: 56px;
+  font-weight: 900;
   color: gold;
+  text-shadow: 0 0 25px gold, 0 0 50px orange;
 }
