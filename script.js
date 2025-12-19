@@ -1,3 +1,4 @@
+const winSound = document.getElementById("winSound");
 const welcome = document.getElementById("welcome");
 const setup = document.getElementById("setup");
 const game = document.getElementById("game");
@@ -55,8 +56,8 @@ function startRound() {
 function generateGraph() {
   for (let i = 0; i < 15; i++) {
     nodes.push({
-      x: 60 + Math.random() * 480,
-      y: 60 + Math.random() * 480
+      x: 120 + Math.random() * 360,
+      y: 120 + Math.random() * 360
     });
   }
 
@@ -66,7 +67,7 @@ function generateGraph() {
 
   for (let i = 0; i < 15; i++) {
     for (let j = i + 2; j < 15; j++) {
-      if (Math.random() < 0.2) {
+      if (Math.random() < 0.17) {
         edges.push({ a: i, b: j, state: "free" });
       }
     }
@@ -151,6 +152,9 @@ function hasPath(onlyGreen) {
 function showWin(text) {
   winText.innerText = text;
   winPopup.classList.remove("hidden");
+
+  winSound.currentTime = 0;  // rewind
+  winSound.play();           // 🔊 play sound
 }
 
 function updateInfo() {
