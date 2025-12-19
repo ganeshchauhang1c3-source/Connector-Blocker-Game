@@ -3,30 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Connector vs Blocker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Mobile fullscreen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
 
-<div id="welcome" class="screen">
+<!-- Winner sound -->
+<audio id="winSound" src="win.mp3"></audio>
+
+<!-- WELCOME POPUP -->
+<div id="welcome" class="screen fade-in">
+  <img src="logo.png" class="logo">
   <h1>WELCOME TO<br>GURU NANAK KHALSA<br>MATHS FEST</h1>
   <button id="enterBtn">ENTER</button>
 </div>
 
-<div id="setup" class="screen hidden">
+<!-- PLAYER SETUP -->
+<div id="setup" class="screen hidden fade-in">
   <h2>Enter Player Names</h2>
   <input id="p1" placeholder="Player 1">
   <input id="p2" placeholder="Player 2">
   <button id="startBtn">START GAME</button>
 </div>
 
-<div id="game" class="screen hidden">
+<!-- GAME -->
+<div id="game" class="screen hidden fade-in">
   <h3 id="info"></h3>
   <svg id="board" viewBox="0 0 600 600"></svg>
 </div>
 
-<div id="winPopup" class="screen hidden">
+<!-- WIN POPUP -->
+<div id="winPopup" class="screen hidden fade-in">
   <h1 id="winText"></h1>
   <button id="nextBtn">NEXT ROUND</button>
 </div>
